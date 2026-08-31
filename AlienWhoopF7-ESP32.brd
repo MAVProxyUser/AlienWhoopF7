@@ -1729,7 +1729,6 @@ Please make sure your boards conform to these design rules.</description>
 <via x="25.87625" y="23.083" extent="1-16" drill="0.35" />
 <via x="11.653" y="17.512659375" extent="1-16" drill="0.35" />
 <via x="22.0149625" y="6.4012875" extent="1-16" drill="0.35" />
-<via x="15.8149" y="12.6591" extent="1-16" drill="0.35" />
 <via x="24.13" y="16.08735" extent="1-16" drill="0.35" />
 <via x="25.86156875" y="19.52625" extent="1-16" drill="0.35" />
 <via x="24.13" y="17.25015" extent="1-16" drill="0.35" />
@@ -1829,7 +1828,6 @@ Please make sure your boards conform to these design rules.</description>
 <via x="16.51" y="26.67" extent="1-16" drill="0.35" />
 <via x="24.60625" y="12.54125" extent="1-16" drill="0.35" />
 <via x="10.16" y="12.3825" extent="1-16" drill="0.35" />
-<via x="10.95375" y="11.7475" extent="1-16" drill="0.35" />
 <via x="22.8854" y="26.035" extent="1-16" drill="0.35" />
 <via x="26.4897" y="17.15645" extent="1-16" drill="0.35" />
 <via x="6.760825" y="8.24574375" extent="1-16" drill="0.35" />
