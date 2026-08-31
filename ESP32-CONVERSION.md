@@ -77,8 +77,17 @@ NRST cap). R5 (10K) moves from BOOT0-pulldown to IO0-pullup.
 - **Y1** 8 MHz resonator — the WROOM has its own 40 MHz crystal
 - **U4** SN74LVC1G04 SBUS inverter + the RX2/INV pad — UART RX inversion is a
   register bit on ESP32
-- **C7, C10, C15** — STM32 VCAP caps (and the whole F4-vs-F7 0R-vs-4.7uF BOM
-  fork in the old README dies with them)
+- **C7, C10, C15** — retired with honors. These three sites are the board's
+  dual-MCU selection trick: they sit on exactly the LQFP64 pins whose meaning
+  differs between the F405 and the F722. C15 hangs on the pin the F405 symbol
+  calls PB11 — on a net the schematic itself names `VCAP_1_F7`, because on the
+  F722 that same physical pin *is* VCAP_1. Populating 4.7 µF vs 0R per the
+  original README reconfigures one PCB for either chip: a cap where the pin is
+  VCAP, a jumper-to-ground where that pin is a dead GPIO. The ESP32 has no
+  VCAP pins (core regulation lives inside the module), so the mechanism has
+  nothing left to select between — its spiritual successor here is the module
+  footprint itself, which takes a WROOM-32E (PCB antenna) or WROOM-32UE
+  (u.FL, no antenna overhang needed) as a population-time choice
 - The practice of grounding unused MCU pins. **Unused ESP32 pins float.**
   Grounding IO0/IO2/IO12/IO15 changes boot behavior; the schematic leaves
   every unused module pin unconnected on purpose.

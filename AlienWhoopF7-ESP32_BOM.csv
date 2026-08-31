@@ -24,4 +24,4 @@ KEEP,3,"LED0,LED1,POWER",BLUE,APHCM2012QBC/D-F01,0805,LED0 on IO26 active-low (u
 REMOVED,1,IC1(old),STM32F405RGT6 / STM32F722RET6,STM32F405RGT6,LQFP64,Replaced by ESP32-WROOM-32E
 REMOVED,1,Y1,8MHz resonator,CSTCE8M00G55-R0,CSTCE8M,WROOM has its own 40MHz crystal
 REMOVED,1,U4,SBUS inverter,SN74LVC1G04DBVR,SOT-23-5,ESP32 UART inverts RX in silicon (UART_RXD_INV); RX2/INV pad deleted too
-REMOVED,3,"C7,C10,C15",4.7uF (or 0R on F4 builds),GRJ188C70J475KE11D,0603,STM32 VCAP caps; the whole F4-vs-F7 BOM fork disappears
+REMOVED,3,"C7,C10,C15",4.7uF (or 0R on F4 builds),GRJ188C70J475KE11D,0603,The F4/F7 dual-MCU selection sites (cap-vs-0R on the LQFP64 pins whose function differs between F405 and F722 - C15 = the F405's PB11 = the F722's VCAP_1); ESP32 has no VCAP pins so there is nothing left to select
