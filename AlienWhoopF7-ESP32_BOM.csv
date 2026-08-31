@@ -1,5 +1,5 @@
 Status,Qty,Refs,Value,MPN,Package,Notes
-NEW,1,IC1,ESP32-WROOM-32E,ESP32-WROOM-32E-N4,ESP32-WROOM-32E,Espressif module; antenna overhangs board edge; replaces STM32F405RGT6/STM32F722RET6
+NEW,1,IC1,ESP32-MINI-1,ESP32-MINI-1-N4,ESP32-MINI-1,Espressif module (ESP32-U4WDH dual-core 240MHz + 4MB flash); replaces STM32F405RGT6/STM32F722RET6; a WROOM-32E does not fit between the motor-plug through-holes; -H4 for 105C; ESP32-MINI-1U (u.FL) is a population choice on the same land pattern; IO16/IO17 do not exist (in-package flash) - IO9/IO10 exposed instead
 NEW,1,U5,CH340C,CH340C,SOP-16,USB-UART bridge (ESP32 has no USB peripheral); V3 tied to VCC for 3.3V operation
 NEW,2,"Q6,Q7",MMBT3904,MMBT3904,SOT-23,esptool auto-reset pair (DTR/RTS to EN/IO0)
 NEW,7,"R6,R7,R8,R9,R10,R11,R12",10K,CRCW060310K0FKEAHP,0603,R6/R7 auto-reset bases; R8 flash-CS pullup; R9 gyro-CS pullup; R10/R11 vbat divider to IO35; R12 EN pullup
