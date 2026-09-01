@@ -1,0 +1,27 @@
+Status,Qty,Refs,Value,MPN,Package,Notes
+NEW,1,IC1,ESP32-MINI-1,ESP32-MINI-1-N4,ESP32-MINI-1,Espressif module (ESP32-U4WDH dual-core 240MHz + 4MB flash); replaces STM32F405RGT6/STM32F722RET6; a WROOM-32E does not fit between the motor-plug through-holes; -H4 for 105C; ESP32-MINI-1U (u.FL) is a population choice on the same land pattern; IO16/IO17 do not exist (in-package flash) - IO9/IO10 exposed instead
+NEW,1,U5,CH340C,CH340C,SOP-16,USB-UART bridge (ESP32 has no USB peripheral); V3 tied to VCC for 3.3V operation
+NEW,2,"Q6,Q7",MMBT3904,MMBT3904,SOT-23,esptool auto-reset pair (DTR/RTS to EN/IO0)
+NEW,7,"R6,R7,R8,R9,R10,R11,R12",10K,CRCW060310K0FKEAHP,0603,R6/R7 auto-reset bases; R8 flash-CS pullup; R9 gyro-CS pullup; R10/R11 vbat divider to IO35; R12 EN pullup
+NEW,2,"C16,C18",0.1uF,GRM188R71C104KA01D,0603,CH340C VCC + module decoupling
+NEW,1,C17,22uF,JMK212BJ226MG-T,0805,3V3 bulk for WiFi TX bursts
+NEW,1,C19,10uF,JMK212AB7106KG-T,0805,Module 3V3 bulk
+CHANGED,1,C9,1uF,GRM188R71C105KA12D,0603,Was 0.1uF on NRST; now EN power-on RC
+KEEP,1,U1,TPS63001,TPS63001DRCR,VSON-10,Already the right regulator for an ESP32 (3.3V buck-boost from 1S)
+KEEP,1,U2,MPU-6500,MPU-6500 (or MPU-9250),QFN24_PAD,Gyro on VSPI; WHO_AM_I 0x70 already accepted by the port driver; VDDIO now actually tied to 3V3 (original net was floating)
+KEEP,1,U3,MX25L6406E,MX25L6406EM2I-12G,SOP-8/M2I,Blackbox flash on HSPI (IO14/12/13/15); external on purpose - internal flash writes stall XIP
+KEEP,1,L1,2.2uH,TFM201610ALMA2R2MTAA,TFM201610,
+KEEP,1,BAT,JST-PH,S2B-PH-K-S,JST-PH,
+KEEP,1,USB,micro-USB,614105150621 / 105133-0011,vertical,VBUS-to-VCC tie retained; board still powers from USB
+KEEP,1,Q1,IRLML6402,IRLML6402,SOT-23,Reverse-polarity P-FET
+KEEP,4,"Q2,Q3,Q4,Q5",FDMA410NZ,FDMA410NZ,MICROFET-2X2,Motor FETs; gates now IO25/IO27/IO33/IO32
+KEEP,4,"M1,M2,M3,M4",53047-0210,53047-0210,PICO-1.25,
+KEEP,5,"R1,R2,R3,R4,R5",10K,CRCW060310K0FKEAHP,0603,R1-R4 gate pulldowns; R5 NET CHANGE: was BOOT0 pulldown - now IO0 pullup
+KEEP,8,"C2,C5,C6,C8,C11,C12,C14,C3(.01uF)",0.1uF/.01uF,GRM188R71C104KA01D / GRM188R71C103KA01D,0603,Rail decoupling; C5 = MPU REGOUT; C3 = MPU VDDIO
+KEEP,2,"C1,C4",10uF,JMK212AB7106KG-T,0805,Regulator in/out
+KEEP,1,C13,1uF,GRM188R71C105KA12D,0603,
+KEEP,3,"LED0,LED1,POWER",BLUE,APHCM2012QBC/D-F01,0805,LED0 on IO26 active-low (unchanged); LED1 POLARITY FLIPPED: anode to IO2 cathode to GND (strap-safe)
+REMOVED,1,IC1(old),STM32F405RGT6 / STM32F722RET6,STM32F405RGT6,LQFP64,Replaced by ESP32-WROOM-32E
+REMOVED,1,Y1,8MHz resonator,CSTCE8M00G55-R0,CSTCE8M,WROOM has its own 40MHz crystal
+REMOVED,1,U4,SBUS inverter,SN74LVC1G04DBVR,SOT-23-5,ESP32 UART inverts RX in silicon (UART_RXD_INV); RX2/INV pad deleted too
+REMOVED,3,"C7,C10,C15",4.7uF (or 0R on F4 builds),GRJ188C70J475KE11D,0603,The F4/F7 dual-MCU selection sites (cap-vs-0R on the LQFP64 pins whose function differs between F405 and F722 - C15 = the F405's PB11 = the F722's VCAP_1); ESP32 has no VCAP pins so there is nothing left to select
